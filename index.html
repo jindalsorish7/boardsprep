@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBSE Class 12 Board Exam 2027 — 95%+ Study Command Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            slate: {
+              850: '#151e32',
+              925: '#0b1120',
+              950: '#070b14',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Custom scrollbars and subtle utilities */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b1120;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+
+    .ring-circle {
+      transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+
+    /* Clean A4 Print Stylesheet */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 11pt !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      .print-card {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      .print-text-dark {
+        color: #0f172a !important;
+      }
+      .print-text-muted {
+        color: #475569 !important;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid #cbd5e1 !important;
+        padding: 6px 8px !important;
+        color: #0f172a !important;
+        font-size: 9.5pt !important;
+      }
+      th {
+        background-color: #f1f5f9 !important;
+        font-weight: 700 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-rose-500/30 selection:text-rose-200 min-h-screen">
+
+  <!-- Toast Notification Banner (No alert() used) -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden transform transition-all duration-300 translate-y-2 opacity-0 no-print">
+    <div class="bg-slate-800 border border-slate-700 text-slate-100 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+      <span id="toast-icon" class="text-emerald-400 text-lg">✓</span>
+      <span id="toast-msg" class="text-sm font-medium">Saved</span>
+    </div>
+  </div>
+
+  <!-- Top Navigation / Header -->
+  <header class="sticky top-0 z-30 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-500/15 text-rose-400 border border-rose-500/30">
+            TARGET: 95%+ BOARDS 2027
+          </span>
+          <span class="text-xs text-slate-400 font-mono">PCM + ENG + AI (843)</span>
+        </div>
+        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white mt-1">
+          CBSE Class 12 Study Command Center
+        </h1>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2.5">
+        <button onclick="resetDemoData()" class="px-3.5 py-2 rounded-xl text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition cursor-pointer" title="Reset progress to default starting state">
+          Reset Progress
+        </button>
+        <button onclick="triggerPrintPlan()" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white shadow-lg shadow-rose-950/40 flex items-center gap-2 transition cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z"/>
+          </svg>
+          Print My Plan (A4)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- 1. TOP ROW: FOUR STAT CARDS -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Card 1: Days Left Until Final Exam + Live Countdown -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg print-card relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 print-text-muted">Until Final Exam (AI)</span>
+          <span class="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 no-print">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="stat-days-left" class="text-3xl font-extrabold text-white print-text-dark">114</span>
+          <span class="text-sm font-medium text-slate-400 print-text-muted">days left (20 Mar 2027)</span>
+        </div>
+        <div id="live-countdown" class="mt-2 font-mono text-xs sm:text-sm font-semibold text-emerald-400 bg-slate-950/80 border border-slate-800/80 rounded-lg px-2.5 py-1.5 inline-block print-text-dark">
+          114d 08h 15m 00s
+        </div>
+      </div>
+
+      <!-- Card 2: Overall Syllabus Completed -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg print-card">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 print-text-muted">Overall Syllabus Revised</span>
+          <span class="p-2 rounded-xl bg-blue-500/10 text-blue-400 no-print">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </span>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="stat-syllabus-pct" class="text-3xl font-extrabold text-white print-text-dark">0%</span>
+          <span id="stat-syllabus-count" class="text-xs font-medium text-slate-400 print-text-muted">0 / 63 chapters revised</span>
+        </div>
+        <div class="w-full bg-slate-800 rounded-full h-2 mt-3 overflow-hidden no-print">
+          <div id="stat-syllabus-bar" class="bg-gradient-to-r from-rose-500 via-amber-500 to-emerald-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+        <p id="stat-learning-sub" class="text-[11px] text-slate-400 mt-1.5 print-text-muted">0 currently in Learning phase</p>
+      </div>
+
+      <!-- Card 3: Next Exam Subject + Date -->
+      <div class="bg-slate-900/90 border border-rose-500/40 rounded-2xl p-5 shadow-lg print-card">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-rose-400 print-text-muted">Next Board Exam</span>
+          <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">PRIORITY #1</span>
+        </div>
+        <div class="mt-2">
+          <div id="stat-next-exam-name" class="text-2xl font-extrabold text-white print-text-dark">Physics (042)</div>
+          <div id="stat-next-exam-date" class="text-xs font-medium text-slate-300 mt-1 print-text-muted">Tue, 16 Feb 2027 • 10:30 AM</div>
+        </div>
+        <div id="stat-next-exam-days" class="mt-2 text-xs font-semibold text-rose-400 print-text-dark">
+          82 days away • Start from Zero
+        </div>
+      </div>
+
+      <!-- Card 4: Current Study Streak -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg print-card">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 print-text-muted">Current Study Streak</span>
+          <span class="p-2 rounded-xl bg-amber-500/10 text-amber-400 no-print">
+            🔥
+          </span>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="stat-streak-count" class="text-3xl font-extrabold text-amber-400 print-text-dark">1</span>
+          <span class="text-sm font-medium text-slate-400 print-text-muted">day streak</span>
+        </div>
+        <div class="mt-2.5 flex items-center justify-between gap-2 no-print">
+          <span id="streak-status-text" class="text-[11px] text-slate-400">Complete today's 3h blocks</span>
+          <button onclick="incrementStreakManual()" class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 transition cursor-pointer">
+            + Log Day
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. EXAM TIMELINE STRIP WITH GAP DAYS -->
+    <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg print-card">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+        <div>
+          <h2 class="text-base font-bold text-white print-text-dark flex items-center gap-2">
+            <span>CBSE Class 12 Board Exam 2027 Timeline & Gap-Day Strategy</span>
+          </h2>
+          <p class="text-xs text-slate-400 print-text-muted">
+            Rule: Gap days between exams are locked 100% to the next exam's subject, with <strong class="text-slate-200 print-text-dark">1 Full Revision Day</strong> right before exam day.
+          </p>
+        </div>
+        <span class="text-[11px] font-mono text-slate-400 bg-slate-950 px-3 py-1 rounded-lg border border-slate-800 no-print">
+          Official/Tentative Window: Feb 16 – Mar 20, 2027
+        </span>
+      </div>
+
+      <!-- Horizontal Scrollable / Responsive Timeline -->
+      <div class="overflow-x-auto pb-2">
+        <div id="exam-timeline-strip" class="min-w-[820px] grid grid-cols-9 gap-2 items-center">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SUBJECT PROGRESS RINGS (5 SUBJECTS) -->
+    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4" id="subject-rings-grid">
+      <!-- Populated dynamically via JS -->
+    </section>
+
+    <!-- 4. MAIN SECTION: TODAY'S 3-HOUR STUDY PLAN & PHASE NAVIGATOR -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left 8 Cols: Interactive Daily Timetable -->
+      <div class="lg:col-span-8 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-lg print-card">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="day-phase-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                PHASE 1: LEARN (FOUNDATION)
+              </span>
+              <span id="day-special-badge" class="hidden px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                SUNDAY PYP DAY
+              </span>
+            </div>
+            <h2 id="selected-date-heading" class="text-lg sm:text-xl font-extrabold text-white mt-1.5 print-text-dark">
+              Thursday, 26 November 2026
+            </h2>
+            <p id="selected-date-sub" class="text-xs text-slate-400 print-text-muted">
+              Day 1 of 115 • 3 Hours Self-Study (45–50 min blocks + breaks) • 7.5–8h Sleep Rule
+            </p>
+          </div>
+
+          <!-- Date Controls -->
+          <div class="flex flex-wrap items-center gap-2 no-print">
+            <button onclick="shiftSelectedDate(-1)" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition cursor-pointer" title="Previous Day">
+              ◀
+            </button>
+            <input type="date" id="date-picker" min="2026-11-26" max="2027-03-20" value="2026-11-26"
+              onchange="onDateInputChange(this.value)"
+              class="bg-slate-950 border border-slate-700 text-slate-100 text-xs font-medium rounded-xl px-3 py-2 focus:outline-none focus:border-rose-500" />
+            <button onclick="shiftSelectedDate(1)" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition cursor-pointer" title="Next Day">
+              ▶
+            </button>
+            <button onclick="jumpToDate('2026-11-26')" class="px-3 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition cursor-pointer">
+              Today
+            </button>
+          </div>
+        </div>
+
+        <!-- Phase Quick Jump Pills -->
+        <div class="flex flex-wrap items-center gap-2 my-4 no-print">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mr-1">Jump to Phase:</span>
+          <button onclick="jumpToDate('2026-11-26')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800/80 hover:bg-rose-500/20 hover:text-rose-300 text-slate-300 border border-slate-700/80 transition cursor-pointer">
+            Phase 1: Learn (Nov 26–Jan 15)
+          </button>
+          <button onclick="jumpToDate('2027-01-16')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800/80 hover:bg-amber-500/20 hover:text-amber-300 text-slate-300 border border-slate-700/80 transition cursor-pointer">
+            Phase 2: Revise (Jan 16–Feb 5)
+          </button>
+          <button onclick="jumpToDate('2027-02-06')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800/80 hover:bg-blue-500/20 hover:text-blue-300 text-slate-300 border border-slate-700/80 transition cursor-pointer">
+            Phase 3: Mocks (Feb 6–Feb 15)
+          </button>
+          <button onclick="jumpToDate('2027-02-17')" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800/80 hover:bg-emerald-500/20 hover:text-emerald-300 text-slate-300 border border-slate-700/80 transition cursor-pointer">
+            Exam Gap Days (Feb 16–Mar 20)
+          </button>
+        </div>
+
+        <!-- Daily Progress Summary Bar -->
+        <div class="bg-slate-950/70 border border-slate-800/90 rounded-xl p-3.5 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 print-card">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 font-bold text-sm" id="daily-pct-badge">
+              0%
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white print-text-dark">Daily 3-Hour Execution Progress</div>
+              <div id="daily-focus-note" class="text-[11px] text-slate-400 print-text-muted">
+                Tick all 3 study blocks to complete your daily target & maintain streak.
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-[11px] font-medium text-indigo-300 bg-indigo-500/10 border border-indigo-500/25 px-3 py-1.5 rounded-lg">
+            <span>🌙 Sleep Target: 11:00 PM – 6:45 AM (7h 45m)</span>
+          </div>
+        </div>
+
+        <!-- Time Blocks List -->
+        <div id="daily-blocks-container" class="space-y-3">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Right 4 Cols: Weak Topic List & Priority Strategy -->
+      <div class="lg:col-span-4 space-y-6">
+        <!-- Weak Topic List Card -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg print-card">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h3 class="text-base font-bold text-white print-text-dark flex items-center gap-2">
+                <span class="text-rose-400">⚠</span> Weak & Difficult Topics
+              </h3>
+              <p class="text-xs text-slate-400 print-text-muted">Chapters flagged for extra NCERT & PYQ drilling</p>
+            </div>
+            <span id="weak-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+              1
+            </span>
+          </div>
+
+          <div id="weak-topics-list" class="space-y-2.5 max-h-[340px] overflow-y-auto pr-1">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Physics Zero-to-95% Blueprint Card -->
+        <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-rose-950/30 border border-rose-500/30 rounded-2xl p-5 shadow-lg print-card">
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-rose-400 mb-2">
+            Physics Zero-to-95% Blueprint
+          </h3>
+          <ul class="space-y-2 text-xs text-slate-300 print-text-muted">
+            <li class="flex items-start gap-2">
+              <span class="text-rose-400 font-bold">1.</span>
+              <span><strong class="text-white print-text-dark">Daily Block 1 (50m):</strong> Locked to Physics derivations, NCERT line-by-line & solved examples every single day in Phase 1.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-rose-400 font-bold">2.</span>
+              <span><strong class="text-white print-text-dark">High-Yield Units First:</strong> Optics + EM Waves (18M), Magnetism + EMI/AC (17M), Electrostatics + Current (16M) = 51/70 marks.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-rose-400 font-bold">3.</span>
+              <span><strong class="text-white print-text-dark">Wednesdays & Sundays:</strong> Wednesdays clear Physics backlog; Sundays test mixed PYQs under exam timer.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CHAPTER TRACKER & MOCK TEST TRACKER -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left 7 Cols: Complete Chapter Tracker -->
+      <div class="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-lg print-card">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <h2 class="text-lg font-extrabold text-white print-text-dark">
+              CBSE 2026–27 Syllabus & Chapter Tracker
+            </h2>
+            <p class="text-xs text-slate-400 print-text-muted">
+              Update status (<span class="text-slate-300">Not Started → Learning → Revised</span>) or flag chapters as Difficult.
+            </p>
+          </div>
+          <select id="status-filter" onchange="renderChapterTracker()" class="bg-slate-950 border border-slate-700 text-slate-200 text-xs rounded-xl px-3 py-2 focus:outline-none focus:border-rose-500 no-print">
+            <option value="ALL">All Statuses</option>
+            <option value="Not Started">Not Started</option>
+            <option value="Learning">Learning</option>
+            <option value="Revised">Revised</option>
+            <option value="Difficult">Marked Difficult Only</option>
+          </select>
+        </div>
+
+        <!-- Subject Filter Tabs -->
+        <div class="flex flex-wrap gap-2 mb-4 no-print" id="subject-filter-tabs">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Subject Weightage & Deleted Syllabus Note Banner -->
+        <div id="subject-syllabus-banner" class="bg-slate-950/80 border border-slate-800 rounded-xl p-3 mb-4 text-xs text-slate-300 print-card">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Chapters List -->
+        <div id="chapters-list-container" class="space-y-2.5 max-h-[540px] overflow-y-auto pr-1">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Right 5 Cols: Mock Test Tracker + SVG Line Chart -->
+      <div class="lg:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-lg flex flex-col justify-between print-card">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div>
+              <h2 class="text-lg font-extrabold text-white print-text-dark">Mock Test & Sunday PYP Tracker</h2>
+              <p class="text-xs text-slate-400 print-text-muted">Track your climb toward the 95% benchmark</p>
+            </div>
+            <select id="chart-subject-filter" onchange="renderMockChart()" class="bg-slate-950 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none no-print">
+              <option value="ALL">All Subjects</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="English">English</option>
+              <option value="AI">AI (843)</option>
+            </select>
+          </div>
+
+          <!-- Responsive SVG Line Chart -->
+          <div class="bg-slate-950/90 border border-slate-800 rounded-xl p-3 mb-4">
+            <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+              <span>Score Progression (%)</span>
+              <span class="text-emerald-400 font-semibold">--- 95% Goal Line</span>
+            </div>
+            <div id="mock-chart-container" class="w-full h-52">
+              <!-- SVG rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Add New Mock Score Form -->
+          <form onsubmit="addMockScore(event)" class="bg-slate-950/60 border border-slate-800/90 rounded-xl p-3.5 mb-4 space-y-3 no-print">
+            <div class="text-xs font-bold text-slate-200">Log New Mock / Sunday PYP Score</div>
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Subject</label>
+                <select id="mock-subject" required class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-xs rounded-lg px-2.5 py-2">
+                  <option value="Physics">Physics (70M)</option>
+                  <option value="Chemistry">Chemistry (70M)</option>
+                  <option value="Mathematics">Mathematics (80M)</option>
+                  <option value="English">English Core (80M)</option>
+                  <option value="AI">AI 843 (50M)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Test Label / Date</label>
+                <input type="text" id="mock-label" placeholder="e.g., Sun PYP #2" required
+                  class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-xs rounded-lg px-2.5 py-2" />
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2.5 items-end">
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Scored</label>
+                <input type="number" id="mock-scored" min="0" max="100" step="0.5" placeholder="64" required
+                  class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-xs rounded-lg px-2.5 py-2" />
+              </div>
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Max Marks</label>
+                <input type="number" id="mock-max" min="10" max="100" value="70" required
+                  class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-xs rounded-lg px-2.5 py-2" />
+              </div>
+              <button type="submit" class="w-full py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition cursor-pointer">
+                + Add Score
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Recent Mock Scores Log -->
+        <div>
+          <div class="text-xs font-bold text-slate-300 mb-2">Recent Logged Tests</div>
+          <div id="mock-history-list" class="space-y-2 max-h-44 overflow-y-auto pr-1">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PRINT-ONLY A4 MASTER STUDY TIMETABLE SUMMARY -->
+    <section class="hidden print-only space-y-4 pt-4 border-t-2 border-slate-400">
+      <h2 class="text-lg font-bold text-slate-900">A4 Printable Master Study Plan & Exam Gap-Day Timetable (Nov 26, 2026 – Mar 20, 2027)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Phase / Window</th>
+            <th>Dates</th>
+            <th>Daily 3-Hour Structure (45–50m Blocks + 7.5–8h Sleep)</th>
+            <th>Weekly & Exam Rules</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Phase 1: Learn (Foundation)</strong></td>
+            <td>26 Nov 2026 – 15 Jan 2027 (51 Days)</td>
+            <td>Block 1 (50m): Physics From Zero • Break (10m) • Block 2 (50m): Chemistry / Physics Numericals • Break (10m) • Block 3 (45m): Maths / English / AI</td>
+            <td>Wed: Catch-up Buffer • Sun: Previous Year Paper</td>
+          </tr>
+          <tr>
+            <td><strong>Phase 2: Revise & PYQs</strong></td>
+            <td>16 Jan 2027 – 05 Feb 2027 (21 Days)</td>
+            <td>Block 1 (50m): Physics Derivations & PYQs • Break (10m) • Block 2 (50m): Chemistry Reactions & Conversions • Break (10m) • Block 3 (45m): Maths Calculus/Vectors + English/AI</td>
+            <td>Wed: Weak Topic Drill • Sun: Full 3-Hr PYP</td>
+          </tr>
+          <tr>
+            <td><strong>Phase 3: Mock Tests</strong></td>
+            <td>06 Feb 2027 – 15 Feb 2027 (10 Days)</td>
+            <td>Block 1 (50m): Physics Sample Paper Section-wise • Break (10m) • Block 2 (50m): Error Log Fix • Break (10m) • Block 3 (45m): Formula & NCERT Rapid Recall</td>
+            <td><strong>15 Feb 2027:</strong> Full Physics Revision Day (No new topics)</td>
+          </tr>
+          <tr>
+            <td><strong>Exam 1: Physics (042)</strong></td>
+            <td>Tue, 16 Feb 2027</td>
+            <td>Board Exam Day (10:30 AM – 1:30 PM)</td>
+            <td>Post-exam light rest & Chemistry kickoff</td>
+          </tr>
+          <tr>
+            <td><strong>Gap Window 1: Chemistry</strong></td>
+            <td>17 Feb – 26 Feb 2027 (10 Gap Days)</td>
+            <td>100% Chemistry (043): Physical (Days 1–3), Inorganic (Days 4–5), Organic & Biomolecules (Days 6–8), Sample Papers (Day 9)</td>
+            <td><strong>26 Feb 2027:</strong> Full Chemistry Revision Day</td>
+          </tr>
+          <tr>
+            <td><strong>Exam 2: Chemistry (043)</strong></td>
+            <td>Sat, 27 Feb 2027</td>
+            <td>Board Exam Day (10:30 AM – 1:30 PM)</td>
+            <td>Post-exam rest & English Literature start</td>
+          </tr>
+          <tr>
+            <td><strong>Gap Window 2: English Core</strong></td>
+            <td>28 Feb – 04 Mar 2027 (5 Gap Days)</td>
+            <td>100% English (301): Flamingo + Vistas (Days 1–2), Writing Formats & Reading Unseen Passages (Day 3), 2 Sample Papers (Day 4)</td>
+            <td><strong>04 Mar 2027:</strong> Full English Revision Day</td>
+          </tr>
+          <tr>
+            <td><strong>Exam 3: English Core (301)</strong></td>
+            <td>Fri, 05 Mar 2027</td>
+            <td>Board Exam Day (10:30 AM – 1:30 PM)</td>
+            <td>Post-exam rest & Calculus formula review</td>
+          </tr>
+          <tr>
+            <td><strong>Gap Window 3: Mathematics</strong></td>
+            <td>06 Mar – 08 Mar 2027 (3 Gap Days)</td>
+            <td>100% Maths (041): Calculus 35M + Vectors/3D 14M (Day 1), Matrices/Det/Prob/LP/Rel-Trig 31M + Case Studies (Day 2)</td>
+            <td><strong>08 Mar 2027:</strong> Full Maths Formula & NCERT Misc Revision Day</td>
+          </tr>
+          <tr>
+            <td><strong>Exam 4: Mathematics (041)</strong></td>
+            <td>Tue, 09 Mar 2027</td>
+            <td>Board Exam Day (10:30 AM – 1:30 PM)</td>
+            <td>Post-exam rest & AI 843 Unit mapping</td>
+          </tr>
+          <tr>
+            <td><strong>Gap Window 4: AI (843)</strong></td>
+            <td>10 Mar – 19 Mar 2027 (10 Gap Days)</td>
+            <td>100% Artificial Intelligence (843): Units 2, 3, 5, 6, 7, 8 + Employability Skills + CBSE Sample Papers & Case Studies</td>
+            <td><strong>19 Mar 2027:</strong> Full AI Revision Day</td>
+          </tr>
+          <tr>
+            <td><strong>Exam 5: AI (843) — FINAL</strong></td>
+            <td>Sat, 20 Mar 2027</td>
+            <td>Final Board Exam Day (10:30 AM – 12:30 PM)</td>
+            <td>Target Achieved: 95%+ Aggregate!</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // =========================================================================
+    // 1. MASTER DATA DEFINITIONS (CBSE 2026-27 SYLLABUS, EXAMS & WEIGHTAGE)
+    // =========================================================================
+    const SUBJECT_META = {
+      Physics: {
+        code: '042',
+        name: 'Physics',
+        short: 'Physics',
+        color: '#f43f5e', // Rose
+        bgSoft: 'bg-rose-500/15',
+        borderSoft: 'border-rose-500/30',
+        textClass: 'text-rose-400',
+        theoryMarks: 70,
+        practicalMarks: 30,
+        examDate: '2027-02-16',
+        examDisplay: 'Tue, 16 Feb 2027',
+        examTime: '10:30 AM – 1:30 PM',
+        syllabusNote: 'Theory: 70 Marks | 9 Units (14 Chapters). Deleted topics (Cyclotron, Potentiometer, Radioactivity α/β/γ decay, Davisson-Germer, Transistors, Communication Systems) excluded per rationalized NCERT.'
+      },
+      Chemistry: {
+        code: '043',
+        name: 'Chemistry',
+        short: 'Chemistry',
+        color: '#f59e0b', // Amber
+        bgSoft: 'bg-amber-500/15',
+        borderSoft: 'border-amber-500/30',
+        textClass: 'text-amber-400',
+        theoryMarks: 70,
+        practicalMarks: 30,
+        examDate: '2027-02-27',
+        examDisplay: 'Sat, 27 Feb 2027',
+        examTime: '10:30 AM – 1:30 PM',
+        syllabusNote: 'Theory: 70 Marks | 10 Units. Deleted chapters (Solid State, Surface Chemistry, General Principles of Isolation, p-Block, Polymers, Chemistry in Everyday Life) excluded.'
+      },
+      English: {
+        code: '301',
+        name: 'English Core',
+        short: 'English',
+        color: '#a855f7', // Purple
+        bgSoft: 'bg-purple-500/15',
+        borderSoft: 'border-purple-500/30',
+        textClass: 'text-purple-400',
+        theoryMarks: 80,
+        practicalMarks: 20,
+        examDate: '2027-03-05',
+        examDisplay: 'Fri, 5 Mar 2027',
+        examTime: '10:30 AM – 1:30 PM',
+        syllabusNote: 'Theory: 80 Marks | Section A Reading (22M), Section B Creative Writing (18M), Section C Literature Flamingo & Vistas (40M). Deleted: An Elementary School Classroom in a Slum, Should Wizard Hit Mommy, Evans Tries an O-Level.'
+      },
+      Mathematics: {
+        code: '041',
+        name: 'Mathematics',
+        short: 'Maths',
+        color: '#3b82f6', // Blue
+        bgSoft: 'bg-blue-500/15',
+        borderSoft: 'border-blue-500/30',
+        textClass: 'text-blue-400',
+        theoryMarks: 80,
+        practicalMarks: 20,
+        examDate: '2027-03-09',
+        examDisplay: 'Tue, 9 Mar 2027',
+        examTime: '10:30 AM – 1:30 PM',
+        syllabusNote: 'Theory: 80 Marks | 6 Units (13 Chapters). Calculus carries 35 Marks (43.75%). Deleted: Binary Operations, Tangent & Normal, Rolle’s/Lagrange’s MVT, Plane in 3D, Bernoulli Trials.'
+      },
+      AI: {
+        code: '843',
+        name: 'Artificial Intelligence',
+        short: 'AI (843)',
+        color: '#10b981', // Emerald
+        bgSoft: 'bg-emerald-500/15',
+        borderSoft: 'border-emerald-500/30',
+        textClass: 'text-emerald-400',
+        theoryMarks: 50,
+        practicalMarks: 50,
+        examDate: '2027-03-20',
+        examDisplay: 'Sat, 20 Mar 2027',
+        examTime: '10:30 AM – 12:30 PM',
+        syllabusNote: 'Theory: 50 Marks | Part A Employability Skills (10M) + Part B Subject Specific Skills (40M). Note: Unit 1 (Python Programming-II) & Unit 4 (Orange Data Mining) are assessed in Practical (50M) only.'
+      }
+    };
+
+    const EXAMS_TIMELINE = [
+      { subject: 'Physics', code: '042', date: '2027-02-16', label: '16 Feb 2027', day: 'Tue', gapAfter: 10, gapRange: '17 Feb – 26 Feb', gapTarget: 'Chemistry Only' },
+      { subject: 'Chemistry', code: '043', date: '2027-02-27', label: '27 Feb 2027', day: 'Sat', gapAfter: 5, gapRange: '28 Feb – 04 Mar', gapTarget: 'English Only' },
+      { subject: 'English', code: '301', date: '2027-03-05', label: '05 Mar 2027', day: 'Fri', gapAfter: 3, gapRange: '06 Mar – 08 Mar', gapTarget: 'Maths Only' },
+      { subject: 'Mathematics', code: '041', date: '2027-03-09', label: '09 Mar 2027', day: 'Tue', gapAfter: 10, gapRange: '10 Mar – 19 Mar', gapTarget: 'AI Only' },
+      { subject: 'AI', code: '843', date: '2027-03-20', label: '20 Mar 2027', day: 'Sat', gapAfter: 0, gapRange: '', gapTarget: 'FINAL EXAM' }
+    ];
+
+    const INITIAL_CHAPTERS = [
+      // PHYSICS (14 Chapters)
+      { id: 'phy-1', subject: 'Physics', unit: 'Unit I (16M)', title: 'Ch 1: Electric Charges and Fields', weightage: '~8M', status: 'Learning', difficult: true, note: 'Gauss Law applications & electric dipole field derivations' },
+      { id: 'phy-2', subject: 'Physics', unit: 'Unit I (16M)', title: 'Ch 2: Electrostatic Potential and Capacitance', weightage: '~8M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-3', subject: 'Physics', unit: 'Unit II (incl. 16M)', title: 'Ch 3: Current Electricity', weightage: '~7M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-4', subject: 'Physics', unit: 'Unit III (17M)', title: 'Ch 4: Moving Charges and Magnetism', weightage: '~9M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-5', subject: 'Physics', unit: 'Unit III (17M)', title: 'Ch 5: Magnetism and Matter', weightage: '~3M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-6', subject: 'Physics', unit: 'Unit IV (incl. 17M)', title: 'Ch 6: Electromagnetic Induction', weightage: '~4M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-7', subject: 'Physics', unit: 'Unit IV (incl. 17M)', title: 'Ch 7: Alternating Current', weightage: '~6M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-8', subject: 'Physics', unit: 'Unit V (18M)', title: 'Ch 8: Electromagnetic Waves', weightage: '~3M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-9', subject: 'Physics', unit: 'Unit VI (incl. 18M)', title: 'Ch 9: Ray Optics and Optical Instruments', weightage: '~9M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-10', subject: 'Physics', unit: 'Unit VI (incl. 18M)', title: 'Ch 10: Wave Optics', weightage: '~6M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-11', subject: 'Physics', unit: 'Unit VII (12M)', title: 'Ch 11: Dual Nature of Radiation and Matter', weightage: '~4M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-12', subject: 'Physics', unit: 'Unit VIII (incl. 12M)', title: 'Ch 12: Atoms', weightage: '~4M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-13', subject: 'Physics', unit: 'Unit VIII (incl. 12M)', title: 'Ch 13: Nuclei', weightage: '~4M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'phy-14', subject: 'Physics', unit: 'Unit IX (7M)', title: 'Ch 14: Semiconductor Electronics', weightage: '7M', status: 'Not Started', difficult: false, note: '' },
+
+      // CHEMISTRY (10 Chapters)
+      { id: 'chem-1', subject: 'Chemistry', unit: 'Physical Chem', title: 'Unit 1: Solutions', weightage: '7M', status: 'Learning', difficult: false, note: '' },
+      { id: 'chem-2', subject: 'Chemistry', unit: 'Physical Chem', title: 'Unit 2: Electrochemistry', weightage: '9M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'chem-3', subject: 'Chemistry', unit: 'Physical Chem', title: 'Unit 3: Chemical Kinetics', weightage: '7M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'chem-4', subject: 'Chemistry', unit: 'Inorganic Chem', title: 'Unit 4: d- and f-Block Elements', weightage: '7M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'chem-5', subject: 'Chemistry', unit: 'Inorganic Chem', title: 'Unit 5: Coordination Compounds', weightage: '7M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'chem-6', subject: 'Chemistry', unit: 'Organic Chem', title: 'Unit 6: Haloalkanes and Haloarenes', weightage: '6M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'chem-7', subject: 'Chemistry', unit: 'Organic Chem', title: 'Unit 7: Alcohols, Phenols and Ethers', weightage: '6M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'chem-8', subject: 'Chemistry', unit: 'Organic Chem', title: 'Unit 8: Aldehydes, Ketones & Carboxylic Acids', weightage: '8M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'chem-9', subject: 'Chemistry', unit: 'Organic Chem', title: 'Unit 9: Amines', weightage: '6M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'chem-10', subject: 'Chemistry', unit: 'Biomolecules', title: 'Unit 10: Biomolecules', weightage: '7M', status: 'Not Started', difficult: false, note: '' },
+
+      // MATHEMATICS (13 Chapters)
+      { id: 'math-1', subject: 'Mathematics', unit: 'Unit I (8M)', title: 'Ch 1: Relations and Functions', weightage: '~4M', status: 'Revised', difficult: false, note: '' },
+      { id: 'math-2', subject: 'Mathematics', unit: 'Unit I (8M)', title: 'Ch 2: Inverse Trigonometric Functions', weightage: '~4M', status: 'Revised', difficult: false, note: '' },
+      { id: 'math-3', subject: 'Mathematics', unit: 'Unit II (10M)', title: 'Ch 3: Matrices', weightage: '~5M', status: 'Revised', difficult: false, note: '' },
+      { id: 'math-4', subject: 'Mathematics', unit: 'Unit II (10M)', title: 'Ch 4: Determinants', weightage: '~5M', status: 'Learning', difficult: false, note: '' },
+      { id: 'math-5', subject: 'Mathematics', unit: 'Unit III (35M)', title: 'Ch 5: Continuity and Differentiability', weightage: '~8M', status: 'Learning', difficult: false, note: '' },
+      { id: 'math-6', subject: 'Mathematics', unit: 'Unit III (35M)', title: 'Ch 6: Applications of Derivatives', weightage: '~6M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'math-7', subject: 'Mathematics', unit: 'Unit III (35M)', title: 'Ch 7: Integrals', weightage: '~9M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'math-8', subject: 'Mathematics', unit: 'Unit III (35M)', title: 'Ch 8: Applications of Integrals', weightage: '~5M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'math-9', subject: 'Mathematics', unit: 'Unit III (35M)', title: 'Ch 9: Differential Equations', weightage: '~7M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'math-10', subject: 'Mathematics', unit: 'Unit IV (14M)', title: 'Ch 10: Vector Algebra', weightage: '~6M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'math-11', subject: 'Mathematics', unit: 'Unit IV (14M)', title: 'Ch 11: Three-Dimensional Geometry', weightage: '~8M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'math-12', subject: 'Mathematics', unit: 'Unit V (5M)', title: 'Ch 12: Linear Programming', weightage: '5M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'math-13', subject: 'Mathematics', unit: 'Unit VI (8M)', title: 'Ch 13: Probability', weightage: '8M', status: 'Not Started', difficult: false, note: '' },
+
+      // ENGLISH CORE (20 Modules/Chapters)
+      { id: 'eng-r1', subject: 'English', unit: 'Section A (22M)', title: 'Reading: Discursive & Case-Based Factual Passages', weightage: '22M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-w1', subject: 'English', unit: 'Section B (18M)', title: 'Writing: Notice, Invitations, Letters & Article/Report', weightage: '18M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-f1', subject: 'English', unit: 'Flamingo Prose', title: 'Prose 1: The Last Lesson (Alphonse Daudet)', weightage: 'Lit 40M', status: 'Revised', difficult: false, note: '' },
+      { id: 'eng-f2', subject: 'English', unit: 'Flamingo Prose', title: 'Prose 2: Lost Spring (Anees Jung)', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-f3', subject: 'English', unit: 'Flamingo Prose', title: 'Prose 3: Deep Water (William Douglas)', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-f4', subject: 'English', unit: 'Flamingo Prose', title: 'Prose 4: The Rattrap (Selma Lagerlof)', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-f5', subject: 'English', unit: 'Flamingo Prose', title: 'Prose 5: Indigo (Louis Fischer)', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-f6', subject: 'English', unit: 'Flamingo Prose', title: 'Prose 6: Poets and Pancakes (Asokamitran)', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-f7', subject: 'English', unit: 'Flamingo Prose', title: 'Prose 7: The Interview (Christopher Silvester)', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-f8', subject: 'English', unit: 'Flamingo Prose', title: 'Prose 8: Going Places (A.R. Barton)', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-p1', subject: 'English', unit: 'Flamingo Poetry', title: 'Poem 1: My Mother at Sixty-six', weightage: 'Lit 40M', status: 'Revised', difficult: false, note: '' },
+      { id: 'eng-p2', subject: 'English', unit: 'Flamingo Poetry', title: 'Poem 2: Keeping Quiet', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-p3', subject: 'English', unit: 'Flamingo Poetry', title: 'Poem 3: A Thing of Beauty', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-p4', subject: 'English', unit: 'Flamingo Poetry', title: 'Poem 4: A Roadside Stand', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-p5', subject: 'English', unit: 'Flamingo Poetry', title: 'Poem 5: Aunt Jennifer’s Tigers', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-v1', subject: 'English', unit: 'Vistas (Suppl.)', title: 'Vistas 1: The Third Level', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-v2', subject: 'English', unit: 'Vistas (Suppl.)', title: 'Vistas 2: The Tiger King', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-v3', subject: 'English', unit: 'Vistas (Suppl.)', title: 'Vistas 3: Journey to the End of the Earth', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-v4', subject: 'English', unit: 'Vistas (Suppl.)', title: 'Vistas 4: The Enemy', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'eng-v5', subject: 'English', unit: 'Vistas (Suppl.)', title: 'Vistas 5 & 6: On the Face of It + Memories of Childhood', weightage: 'Lit 40M', status: 'Not Started', difficult: false, note: '' },
+
+      // ARTIFICIAL INTELLIGENCE 843 (7 Theory Modules)
+      { id: 'ai-emp', subject: 'AI', unit: 'Part A (10M)', title: 'Employability Skills (Comm, Self-Mgmt, ICT, Entrep, Green)', weightage: '10M', status: 'Revised', difficult: false, note: '' },
+      { id: 'ai-u2', subject: 'AI', unit: 'Part B (40M)', title: 'Unit 2: Data Science Methodology (Analytic Approach)', weightage: '8M', status: 'Revised', difficult: false, note: '' },
+      { id: 'ai-u3', subject: 'AI', unit: 'Part B (40M)', title: 'Unit 3: Making Machines See (Computer Vision)', weightage: '6M', status: 'Learning', difficult: false, note: '' },
+      { id: 'ai-u5', subject: 'AI', unit: 'Part B (40M)', title: 'Unit 5: Introduction to Big Data and Data Analytics', weightage: '7M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'ai-u6', subject: 'AI', unit: 'Part B (40M)', title: 'Unit 6: Understanding Neural Networks', weightage: '8M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'ai-u7', subject: 'AI', unit: 'Part B (40M)', title: 'Unit 7: Generative AI (LLMs, GANs, VAEs, Ethics)', weightage: '6M', status: 'Not Started', difficult: false, note: '' },
+      { id: 'ai-u8', subject: 'AI', unit: 'Part B (40M)', title: 'Unit 8: Data Storytelling & Visualization', weightage: '5M', status: 'Not Started', difficult: false, note: '' }
+    ];
+
+    const INITIAL_MOCKS = [
+      { id: 'm1', subject: 'Physics', label: 'Diagnostic Baseline', scored: 32, max: 70, date: '2026-11-22' },
+      { id: 'm2', subject: 'Mathematics', label: 'Algebra Mock #1', scored: 71, max: 80, date: '2026-11-23' },
+      { id: 'm3', subject: 'AI', label: 'Unit 2-3 Quiz', scored: 46, max: 50, date: '2026-11-24' },
+      { id: 'm4', subject: 'Chemistry', label: 'Solutions Test', scored: 54, max: 70, date: '2026-11-25' }
+    ];
+
+    // =========================================================================
+    // 2. STATE MANAGEMENT (LOCALSTORAGE PERSISTED)
+    // =========================================================================
+    const STORAGE_KEY = 'cbse_2027_study_dashboard_v1';
+
+    let appState = {
+      selectedDate: '2026-11-26',
+      activeSubjectTab: 'ALL',
+      streak: 1,
+      lastStreakDate: null,
+      chapters: JSON.parse(JSON.stringify(INITIAL_CHAPTERS)),
+      completedBlocks: {}, // { '2026-11-26_0': true, ... }
+      mocks: JSON.parse(JSON.stringify(INITIAL_MOCKS))
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          appState = { ...appState, ...parsed };
+        }
+      } catch (e) {
+        console.warn('Could not load saved state:', e);
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        console.warn('Could not save state:', e);
+      }
+    }
+
+    function resetDemoData() {
+      localStorage.removeItem(STORAGE_KEY);
+      appState = {
+        selectedDate: '2026-11-26',
+        activeSubjectTab: 'ALL',
+        streak: 1,
+        lastStreakDate: null,
+        chapters: JSON.parse(JSON.stringify(INITIAL_CHAPTERS)),
+        completedBlocks: {},
+        mocks: JSON.parse(JSON.stringify(INITIAL_MOCKS))
+      };
+      document.getElementById('date-picker').value = '2026-11-26';
+      renderAll();
+      showToast('Dashboard reset to default starting plan (Nov 26, 2026)');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      toast.classList.remove('hidden', 'translate-y-2', 'opacity-0');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        toast.classList.add('translate-y-2', 'opacity-0');
+        setTimeout(() => toast.classList.add('hidden'), 300);
+      }, 2600);
+    }
+
+    // =========================================================================
+    // 3. DATE & SCHEDULE GENERATION ENGINE
+    // =========================================================================
+    function parseISODate(isoStr) {
+      const [y, m, d] = isoStr.split('-').map(Number);
+      return new Date(y, m - 1, d);
+    }
+
+    function formatISO(dateObj) {
+      const y = dateObj.getFullYear();
+      const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+      const d = String(dateObj.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    function diffDays(isoA, isoB) {
+      const a = parseISODate(isoA);
+      const b = parseISODate(isoB);
+      return Math.round((b - a) / (1000 * 60 * 60 * 24));
+    }
+
+    // Physics 14-chapter sequential roadmap across Phase 1 (51 days: Nov 26 - Jan 15)
+    const PHYSICS_PHASE1_ROADMAP = [
+      'Ch 1: Electric Charges & Fields (Coulomb Law, E-Field, Dipole)',
+      'Ch 1: Electric Charges & Fields (Gauss Law & Applications)',
+      'Ch 2: Electrostatic Potential & Capacitance (Potential, Equipotential)',
+      'Ch 2: Electrostatic Potential & Capacitance (Dielectrics & Energy)',
+      'Ch 3: Current Electricity (Drift Velocity, Ohm Law, Kirchhoff Rules)',
+      'Ch 3: Current Electricity (Wheatstone Bridge & Cell Combinations)',
+      'Ch 4: Moving Charges & Magnetism (Biot-Savart, Ampere Law)',
+      'Ch 4: Moving Charges & Magnetism (Force on Conductor, Galvanometer)',
+      'Ch 5: Magnetism & Matter (Bar Magnet, Dia/Para/Ferromagnetism)',
+      'Ch 6: Electromagnetic Induction (Faraday, Lenz Law, Self/Mutual Ind.)',
+      'Ch 7: Alternating Current (LCR Series Circuit, Resonance, Power)',
+      'Ch 7: Alternating Current (Transformers & AC Generator)',
+      'Ch 8: Electromagnetic Waves (Displacement Current & EM Spectrum)',
+      'Ch 9: Ray Optics (Reflection, Refraction, Total Internal Reflection)',
+      'Ch 9: Ray Optics (Lens Maker Formula, Prism, Microscope/Telescope)',
+      'Ch 10: Wave Optics (Huygens Principle, YDSE Interference, Diffraction)',
+      'Ch 11: Dual Nature of Radiation & Matter (Photoelectric Effect, de Broglie)',
+      'Ch 12 & 13: Atoms & Nuclei (Bohr Model, Mass Defect, Binding Energy)',
+      'Ch 14: Semiconductor Electronics (p-n Junction, Rectifiers, V-I Curves)'
+    ];
+
+    const CHEMISTRY_PHASE1_ROADMAP = [
+      'Unit 1: Solutions (Raoult’s Law, Colligative Properties, van’t Hoff)',
+      'Unit 2: Electrochemistry (Nernst Equation, Conductance, Batteries)',
+      'Unit 3: Chemical Kinetics (Rate Law, Integrated First Order, Arrhenius)',
+      'Unit 4: d- and f-Block Elements (KMnO4, K2Cr2O7, Lanthanoid Contraction)',
+      'Unit 5: Coordination Compounds (IUPAC, VBT, CFT, Isomerism)',
+      'Unit 6: Haloalkanes & Haloarenes (SN1/SN2 Mechanisms, Stereochemistry)',
+      'Unit 7: Alcohols, Phenols & Ethers (Acidity, Reimer-Tiemann, Williamson)',
+      'Unit 8: Aldehydes, Ketones & Carboxylic Acids (Aldol, Cannizzaro, Tests)',
+      'Unit 9: Amines (Basicity Order, Gabriel Phthalimide, Diazonium Salts)',
+      'Unit 10: Biomolecules (Glucose Structure, Proteins, DNA/RNA, Vitamins)'
+    ];
+
+    const ROTATION_PHASE1_ROADMAP = [
+      { subj: 'Mathematics', topic: 'Ch 5–6: Continuity, Differentiability & AOD Maxima/Minima' },
+      { subj: 'English', topic: 'Flamingo Prose + Extract-Based Competency Questions' },
+      { subj: 'Mathematics', topic: 'Ch 7: Indefinite & Definite Integrals (Properties & PYQs)' },
+      { subj: 'AI', topic: 'Unit 2 & 3: Data Science Methodology & Computer Vision' },
+      { subj: 'Mathematics', topic: 'Ch 8 & 9: Area Under Curves & Differential Equations' },
+      { subj: 'English', topic: 'Writing Skills: Notice, Invitations, Job Letter & Report' },
+      { subj: 'Mathematics', topic: 'Ch 10 & 11: Vector Algebra & 3D Shortest Distance' },
+      { subj: 'AI', topic: 'Unit 5 & 6: Big Data Analytics & Neural Networks' },
+      { subj: 'Mathematics', topic: 'Ch 12 & 13: Linear Programming & Bayes Theorem Probability' },
+      { subj: 'AI', topic: 'Unit 7 & 8: Generative AI & Data Storytelling + Employability' }
+    ];
+
+    function generatePlanForDate(isoDate) {
+      const dateObj = parseISODate(isoDate);
+      const dayOfWeek = dateObj.getDay(); // 0 = Sun, 3 = Wed
+      const dayIndex = diffDays('2026-11-26', isoDate); // 0 to 114
+
+      // Check if Exam Day
+      const examToday = EXAMS_TIMELINE.find(e => e.date === isoDate);
+      if (examToday) {
+        return {
+          phaseTitle: 'BOARD EXAM DAY',
+          phaseBadgeClass: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+          specialTag: `EXAM: ${examToday.subject.toUpperCase()} (${examToday.code})`,
+          subNote: `Day ${dayIndex + 1} of 115 • Stay calm, read 15-min question paper carefully, attempt neatly!`,
+          blocks: [
+            {
+              time: '07:30 AM – 08:15 AM (45m)',
+              subject: examToday.subject,
+              title: `Light Formula / Key Quotes Warm-up for ${examToday.subject}`,
+              desc: 'Do NOT learn anything new. Glance over 2-page formula/summary sheet and pack admit card & stationery.'
+            },
+            {
+              time: '10:30 AM – 01:30 PM',
+              subject: examToday.subject,
+              title: `CBSE Class 12 ${examToday.subject} (${examToday.code}) Board Exam`,
+              desc: '10:15–10:30 AM Reading Time: Mark easy & high-weightage questions first. Target 95%+!'
+            },
+            {
+              time: '06:30 PM – 07:15 PM (45m)',
+              subject: examToday.subject === 'AI' ? 'AI' : EXAMS_TIMELINE[EXAMS_TIMELINE.indexOf(examToday) + 1].subject,
+              title: examToday.subject === 'AI'
+                ? 'Celebration & Post-Board Relaxation!'
+                : `Light Orientation for Next Exam: ${EXAMS_TIMELINE[EXAMS_TIMELINE.indexOf(examToday) + 1].subject}`,
+              desc: examToday.subject === 'AI'
+                ? 'All 5 CBSE Board Exams completed! Take a well-deserved break.'
+                : 'Map out the gap days syllabus gently, then sleep 8 hours.'
+            }
+          ]
+        };
+      }
+
+      // Check Pre-Exam Full Revision Days (Feb 15, Feb 26, Mar 4, Mar 8, Mar 19)
+      const preExamMap = {
+        '2027-02-15': { subj: 'Physics', note: 'Complete 14-chapter formula sheet, derivations & NCERT diagrams' },
+        '2027-02-26': { subj: 'Chemistry', note: 'Named reactions, physical formulas, d/f-block trends & biomolecules' },
+        '2027-03-04': { subj: 'English', note: 'All 19 Flamingo/Vistas chapter themes, poetic devices & writing formats' },
+        '2027-03-08': { subj: 'Mathematics', note: 'Integration/3D/Probability formulas & NCERT Misc high-yield examples' },
+        '2027-03-19': { subj: 'AI', note: 'Units 2, 3, 5, 6, 7, 8 definitions, case studies & Employability Skills' }
+      };
+
+      if (preExamMap[isoDate]) {
+        const target = preExamMap[isoDate];
+        return {
+          phaseTitle: 'FULL REVISION DAY (PRE-EXAM)',
+          phaseBadgeClass: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+          specialTag: `100% ${target.subj.toUpperCase()} LOCKED`,
+          subNote: `Day ${dayIndex + 1} of 115 • Zero new topics today. Consolidation + 8 Hours Sleep mandatory.`,
+          blocks: [
+            {
+              time: 'Block 1 • 50 Mins (+10m Break)',
+              subject: target.subj,
+              title: `${target.subj}: Complete Formula / Core Concepts Sweep`,
+              desc: target.note
+            },
+            {
+              time: 'Block 2 • 50 Mins (+10m Break)',
+              subject: target.subj,
+              title: `${target.subj}: Weak Topics & Error-Log Final Review`,
+              desc: 'Re-read mistakes made in Sunday PYPs and mock tests so they never repeat tomorrow.'
+            },
+            {
+              time: 'Block 3 • 45 Mins',
+              subject: target.subj,
+              title: `${target.subj}: Quick Recall Flashcards & Early Sleep Prep`,
+              desc: 'Close books by 9:30 PM. Get 8 hours of uninterrupted sleep before exam morning.'
+            }
+          ]
+        };
+      }
+
+      // Gap Days Window (Feb 17 - Mar 18 excluding exam & pre-exam days)
+      if (isoDate >= '2027-02-17' && isoDate <= '2027-03-18') {
+        let gapSubj = 'Chemistry';
+        let focusDetail = '';
+        if (isoDate <= '2027-02-25') {
+          gapSubj = 'Chemistry';
+          const gDay = diffDays('2027-02-17', isoDate) + 1;
+          const chemTopics = [
+            'Physical Chemistry: Solutions & Electrochemistry Numericals',
+            'Physical Chemistry: Chemical Kinetics + NCERT Back Exercises',
+            'Inorganic Chemistry: d- & f-Block Elements + KMnO4/K2Cr2O7 Reactions',
+            'Inorganic Chemistry: Coordination Compounds (VBT, CFT, IUPAC)',
+            'Organic Chemistry: Haloalkanes, Haloarenes & Alcohols/Phenols/Ethers',
+            'Organic Chemistry: Aldehydes, Ketones, Carboxylic Acids & Named Reactions',
+            'Organic Chemistry: Amines + Biomolecules + Conversions Drill',
+            'Chemistry Full CBSE Sample Paper + Competency Case-Study Questions',
+            'Chemistry Weak Chapter Repair & NCERT Intext Highlighted Lines'
+          ];
+          focusDetail = chemTopics[(gDay - 1) % chemTopics.length];
+        } else if (isoDate <= '2027-03-03') {
+          gapSubj = 'English';
+          const gDay = diffDays('2027-02-28', isoDate) + 1;
+          const engTopics = [
+            'Flamingo Prose (Ch 1–8): Character Sketches, Themes & RTC Extracts',
+            'Flamingo Poetry (Poems 1–5): Poetic Devices, Tone & Central Idea',
+            'Vistas Supplementary (Ch 1–6): Long Answer Value Points & Keywords',
+            'Section A & B: 2 Unseen Passages + Notice, Invitations, Letters, Article/Report'
+          ];
+          focusDetail = engTopics[(gDay - 1) % engTopics.length];
+        } else if (isoDate <= '2027-03-07') {
+          gapSubj = 'Mathematics';
+          const gDay = diffDays('2027-03-06', isoDate) + 1;
+          focusDetail = gDay === 1
+            ? 'Calculus Blitz (35 Marks): Continuity, AOD, Integrals, Area & Diff. Equations'
+            : 'Vectors & 3D (14M) + Matrices/Det (10M) + Probability (8M) + LP (5M) + Rel/ITF (8M)';
+        } else {
+          gapSubj = 'AI';
+          const gDay = diffDays('2027-03-10', isoDate) + 1;
+          const aiTopics = [
+            'Part A: Employability Skills (Communication, Self-Mgmt, ICT, Entrep, Green — 10M)',
+            'Unit 2: Data Science Methodology (CRISP-DM / Foundational Steps — 8M)',
+            'Unit 3: Making Machines See (Computer Vision Tasks, Image Pixels, CNNs — 6M)',
+            'Unit 5: Introduction to Big Data & Data Analytics (5 Vs, Frameworks — 7M)',
+            'Unit 6: Understanding Neural Networks (Perceptron, Layers, Activation — 8M)',
+            'Unit 7: Generative AI (LLMs, GANs, VAEs, Prompting & AI Ethics — 6M)',
+            'Unit 8: Data Storytelling & Visualization (Narrative + Visuals + Data — 5M)',
+            'AI (843) Official CBSE Sample Paper + Competency Case-Based Questions',
+            'AI (843) Previous Year Paper & Short-Answer Keyword Polishing'
+          ];
+          focusDetail = aiTopics[(gDay - 1) % aiTopics.length];
+        }
+
+        return {
+          phaseTitle: `GAP-DAY SPRINT: ${gapSubj.toUpperCase()} ONLY`,
+          phaseBadgeClass: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+          specialTag: 'GAP-DAY RULE ACTIVE',
+          subNote: `Day ${dayIndex + 1} of 115 • Exclusively ${gapSubj} until exam day • 7.5–8h Sleep`,
+          blocks: [
+            {
+              time: 'Block 1 • 50 Mins (+10m Break)',
+              subject: gapSubj,
+              title: `${gapSubj} Core Mastery: ${focusDetail}`,
+              desc: 'Deep-focus NCERT & official CBSE marking scheme answer structuring.'
+            },
+            {
+              time: 'Block 2 • 50 Mins (+10m Break)',
+              subject: gapSubj,
+              title: `${gapSubj}: Past 5-Year Board Questions & Competency MCQs`,
+              desc: 'Solve assertion-reason, case-study, and 5-mark long questions under timed pace.'
+            },
+            {
+              time: 'Block 3 • 45 Mins',
+              subject: gapSubj,
+              title: `${gapSubj}: Summary Notes & Difficult Topic Reinforcement`,
+              desc: 'Update short notes for final pre-exam revision day.'
+            }
+          ]
+        };
+      }
+
+      // Pre-Board Window: Phase 1 (Nov 26 - Jan 15), Phase 2 (Jan 16 - Feb 5), Phase 3 (Feb 6 - Feb 14)
+      let phaseTitle = 'PHASE 1: LEARN (ZERO TO SOLID)';
+      let phaseBadgeClass = 'bg-rose-500/20 text-rose-300 border-rose-500/30';
+      if (isoDate >= '2027-01-16' && isoDate <= '2027-02-05') {
+        phaseTitle = 'PHASE 2: REVISE & PYQ DRILL';
+        phaseBadgeClass = 'bg-amber-500/20 text-amber-300 border-amber-500/30';
+      } else if (isoDate >= '2027-02-06') {
+        phaseTitle = 'PHASE 3: MOCK TESTS & EXAM PREP';
+        phaseBadgeClass = 'bg-blue-500/20 text-blue-300 border-blue-500/30';
+      }
+
+      // Special Weekly Rule 1: SUNDAY = Previous Year Paper (PYP) Day
+      if (dayOfWeek === 0) {
+        const pypSubject = dayIndex % 14 < 7 ? 'Physics' : (dayIndex % 21 < 14 ? 'Chemistry' : 'Mathematics');
+        return {
+          phaseTitle,
+          phaseBadgeClass,
+          specialTag: 'SUNDAY PYP & ERROR ANALYSIS DAY',
+          subNote: `Day ${dayIndex + 1} of 115 • Weekly Previous Year Paper simulation + 7.5–8h Sleep`,
+          blocks: [
+            {
+              time: 'Block 1 • 50 Mins (+10m Break)',
+              subject: pypSubject,
+              title: `Sunday Previous Year Paper (Part A: MCQs, Assertion-Reason & 2M Qs)`,
+              desc: `Solve actual CBSE ${pypSubject} Board PYP questions strictly without looking at solutions.`
+            },
+            {
+              time: 'Block 2 • 50 Mins (+10m Break)',
+              subject: pypSubject,
+              title: `Sunday Previous Year Paper (Part B: 3M, Case-Study & 5M Long Qs)`,
+              desc: 'Write complete step-by-step derivations/steps as per CBSE marking scheme.'
+            },
+            {
+              time: 'Block 3 • 45 Mins',
+              subject: 'Physics',
+              title: `Self-Grading, Mistake Log & Physics Formula Recap`,
+              desc: 'Check answers against CBSE Marking Scheme, log weak topics, and revise Physics formulas.'
+            }
+          ]
+        };
+      }
+
+      // Special Weekly Rule 2: WEDNESDAY = Lighter Catch-Up & Backlog Buffer Day
+      if (dayOfWeek === 3) {
+        return {
+          phaseTitle,
+          phaseBadgeClass,
+          specialTag: 'WEDNESDAY CATCH-UP & BUFFER DAY',
+          subNote: `Day ${dayIndex + 1} of 115 • Lighter pace to clear backlog, revise weak topics & recharge`,
+          blocks: [
+            {
+              time: 'Block 1 • 45 Mins (+15m Break)',
+              subject: 'Physics',
+              title: 'Physics Backlog & Marked-Difficult Topic Repair',
+              desc: 'Re-solve incomplete NCERT numericals or derivations flagged in your Weak Topic list.'
+            },
+            {
+              time: 'Block 2 • 45 Mins (+15m Break)',
+              subject: 'Chemistry',
+              title: 'Chemistry / Maths Weekly Checkpoint & Doubt Clearing',
+              desc: 'Finish any spillover questions from Monday–Tuesday tuitions or self-study.'
+            },
+            {
+              time: 'Block 3 • 45 Mins',
+              subject: 'English',
+              title: 'Lighter Reading: English Literature / AI Concept Summary',
+              desc: 'Low-stress reading + organize study desk and sleep early (8 hours).'
+            }
+          ]
+        };
+      }
+
+      // Standard Study Days (Mon, Tue, Thu, Fri, Sat) tailored by Phase
+      const phyTopic = PHYSICS_PHASE1_ROADMAP[dayIndex % PHYSICS_PHASE1_ROADMAP.length];
+      const chemTopic = CHEMISTRY_PHASE1_ROADMAP[dayIndex % CHEMISTRY_PHASE1_ROADMAP.length];
+      const rotItem = ROTATION_PHASE1_ROADMAP[dayIndex % ROTATION_PHASE1_ROADMAP.length];
+
+      if (isoDate <= '2027-01-15') {
+        // Phase 1: Learn
+        return {
+          phaseTitle,
+          phaseBadgeClass,
+          specialTag: null,
+          subNote: `Day ${dayIndex + 1} of 115 • Physics Priority #1 (From Zero) • 7.5–8h Sleep`,
+          blocks: [
+            {
+              time: 'Block 1 • 50 Mins (+10m Break)',
+              subject: 'Physics',
+              title: `Physics Foundation: ${phyTopic}`,
+              desc: 'Read NCERT line-by-line, write key derivations 2x, and solve 5 foundational examples.'
+            },
+            {
+              time: 'Block 2 • 50 Mins (+10m Break)',
+              subject: 'Chemistry',
+              title: `Chemistry Core: ${chemTopic}`,
+              desc: 'Master NCERT reactions/numericals and highlight intext questions.'
+            },
+            {
+              time: 'Block 3 • 45 Mins',
+              subject: rotItem.subj,
+              title: `${rotItem.subj} Rotation: ${rotItem.topic}`,
+              desc: 'High-accuracy problem solving / format mastery to lock 95+ in your strong subjects.'
+            }
+          ]
+        };
+      } else if (isoDate <= '2027-02-05') {
+        // Phase 2: Revise
+        return {
+          phaseTitle,
+          phaseBadgeClass,
+          specialTag: null,
+          subNote: `Day ${dayIndex + 1} of 115 • Active Recall + Chapter-wise PYQs • 7.5–8h Sleep`,
+          blocks: [
+            {
+              time: 'Block 1 • 50 Mins (+10m Break)',
+              subject: 'Physics',
+              title: `Physics Active Revision + 10-Yr PYQs: ${phyTopic}`,
+              desc: 'Write derivations from memory + solve CBSE competency & assertion-reason questions.'
+            },
+            {
+              time: 'Block 2 • 50 Mins (+10m Break)',
+              subject: 'Chemistry',
+              title: `Chemistry PYQ & NCERT Exemplar: ${chemTopic}`,
+              desc: 'Practice organic conversions, reasoning questions & physical chemistry numericals.'
+            },
+            {
+              time: 'Block 3 • 45 Mins',
+              subject: rotItem.subj,
+              title: `${rotItem.subj} Speed & Accuracy Drill: ${rotItem.topic}`,
+              desc: 'Timed practice of 4-mark case studies & 5-mark long questions.'
+            }
+          ]
+        };
+      } else {
+        // Phase 3: Mock Tests (Feb 6 - Feb 14)
+        return {
+          phaseTitle,
+          phaseBadgeClass,
+          specialTag: 'PRE-BOARD MOCK SPRINT',
+          subNote: `Day ${dayIndex + 1} of 115 • Physics Exam Countdown Mode • 7.5–8h Sleep`,
+          blocks: [
+            {
+              time: 'Block 1 • 50 Mins (+10m Break)',
+              subject: 'Physics',
+              title: `Physics CBSE Sample Paper Drill: ${phyTopic}`,
+              desc: 'Simulate exam pressure on high-weightage Optics, Electromagnetism & Electrostatics.'
+            },
+            {
+              time: 'Block 2 • 50 Mins (+10m Break)',
+              subject: 'Physics',
+              title: 'Physics Numericals & Derivation Accuracy Check',
+              desc: 'Verify SI units, ray diagrams, circuit polarities, and step-marking keywords.'
+            },
+            {
+              time: 'Block 3 • 45 Mins',
+              subject: dayIndex % 2 === 0 ? 'Chemistry' : 'Mathematics',
+              title: dayIndex % 2 === 0
+                ? 'Chemistry Formula & Named-Reaction Maintenance'
+                : 'Maths Calculus & 3D Formula Retention',
+              desc: 'Keep other subjects warm without disturbing Physics final ramp-up.'
+            }
+          ]
+        };
+      }
+    }
+
+    // =========================================================================
+    // 4. RENDER FUNCTIONS
+    // =========================================================================
+    function renderTopStats() {
+      // Days left until March 20, 2027 from selected/current anchor
+      const anchorISO = '2026-11-26';
+      const finalExamISO = '2027-03-20';
+      const daysUntilFinal = Math.max(0, diffDays(anchorISO, finalExamISO));
+      document.getElementById('stat-days-left').textContent = daysUntilFinal;
+
+      // Syllabus completion stats
+      const totalChapters = appState.chapters.length;
+      const revisedCount = appState.chapters.filter(c => c.status === 'Revised').length;
+      const learningCount = appState.chapters.filter(c => c.status === 'Learning').length;
+      const pct = totalChapters ? Math.round((revisedCount / totalChapters) * 100) : 0;
+
+      document.getElementById('stat-syllabus-pct').textContent = `${pct}%`;
+      document.getElementById('stat-syllabus-count').textContent = `${revisedCount} / ${totalChapters} chapters revised`;
+      document.getElementById('stat-syllabus-bar').style.width = `${pct}%`;
+      document.getElementById('stat-learning-sub').textContent = `${learningCount} currently in Learning phase`;
+
+      // Next Exam detection relative to selectedDate
+      const refDate = appState.selectedDate || '2026-11-26';
+      const nextExam = EXAMS_TIMELINE.find(e => e.date >= refDate) || EXAMS_TIMELINE[EXAMS_TIMELINE.length - 1];
+      const daysToNext = Math.max(0, diffDays(refDate, nextExam.date));
+      const meta = SUBJECT_META[nextExam.subject];
+
+      document.getElementById('stat-next-exam-name').textContent = `${meta.name} (${meta.code})`;
+      document.getElementById('stat-next-exam-date').textContent = `${meta.examDisplay} • ${meta.examTime}`;
+      document.getElementById('stat-next-exam-days').textContent = daysToNext === 0
+        ? 'TODAY IS EXAM DAY! Give your 100%!'
+        : `${daysToNext} days from selected date • ${nextExam.subject === 'Physics' ? 'Top Priority' : 'Gap-Day Locked'}`;
+
+      // Streak
+      document.getElementById('stat-streak-count').textContent = appState.streak;
+    }
+
+    function updateLiveCountdown() {
+      // Real-time ticking countdown targeting March 20, 2027 10:30 AM IST relative to Nov 26, 2026 + current clock seconds
+      const now = new Date();
+      const target = new Date('2027-03-20T10:30:00+05:30');
+      let diffMs = target - now;
+      if (diffMs < 0) diffMs = 0;
+
+      const d = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diffMs / (1000 * 60)) % 60);
+      const s = Math.floor((diffMs / 1000) % 60);
+
+      const el = document.getElementById('live-countdown');
+      if (el) {
+        el.textContent = `${d}d ${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
+      }
+    }
+
+    function renderExamTimeline() {
+      const container = document.getElementById('exam-timeline-strip');
+      const refDate = appState.selectedDate || '2026-11-26';
+      const nextExam = EXAMS_TIMELINE.find(e => e.date >= refDate) || EXAMS_TIMELINE[EXAMS_TIMELINE.length - 1];
+
+      let html = '';
+      EXAMS_TIMELINE.forEach((exam, idx) => {
+        const meta = SUBJECT_META[exam.subject];
+        const isNext = exam.subject === nextExam.subject;
+        const isPast = exam.date < refDate;
+
+        html += `
+          <div onclick="jumpToDate('${exam.date}')"
+            class="cursor-pointer rounded-xl p-3 border transition ${
+              isNext
+                ? 'bg-slate-800/95 border-rose-500 ring-2 ring-rose-500/30 shadow-lg'
+                : isPast
+                ? 'bg-slate-950/60 border-slate-800/60 opacity-60'
+                : 'bg-slate-950/90 border-slate-800 hover:border-slate-700'
+            }">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded" style="background:${meta.color}22; color:${meta.color}">
+                ${exam.code}
+              </span>
+              ${isNext ? '<span class="text-[9px] font-extrabold uppercase text-rose-400">NEXT</span>' : ''}
+            </div>
+            <div class="text-xs font-extrabold text-white mt-1.5 truncate print-text-dark">${meta.short}</div>
+            <div class="text-[11px] font-semibold text-slate-300 mt-0.5 print-text-muted">${exam.day}, ${exam.label}</div>
+          </div>
+        `;
+
+        if (exam.gapAfter > 0) {
+          html += `
+            <div onclick="jumpToDate('${exam.date}')" class="cursor-pointer flex flex-col items-center justify-center text-center px-1">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-amber-300 border border-slate-700 whitespace-nowrap">
+                ${exam.gapAfter} Gap Days
+              </span>
+              <div class="w-full h-0.5 bg-gradient-to-r from-slate-700 via-amber-500/50 to-slate-700 my-1"></div>
+              <span class="text-[9px] text-slate-400 leading-tight">${exam.gapTarget}</span>
+            </div>
+          `;
+        }
+      });
+
+      container.innerHTML = html;
+    }
+
+    function renderSubjectRings() {
+      const container = document.getElementById('subject-rings-grid');
+      const radius = 28;
+      const circumference = 2 * Math.PI * radius;
+
+      const subjects = ['Physics', 'Chemistry', 'Mathematics', 'English', 'AI'];
+      container.innerHTML = subjects.map(subjKey => {
+        const meta = SUBJECT_META[subjKey];
+        const subjChapters = appState.chapters.filter(c => c.subject === subjKey);
+        const total = subjChapters.length;
+        const revised = subjChapters.filter(c => c.status === 'Revised').length;
+        const learning = subjChapters.filter(c => c.status === 'Learning').length;
+        const pct = total ? Math.round((revised / total) * 100) : 0;
+        const offset = circumference - (pct / 100) * circumference;
+
+        return `
+          <div onclick="filterBySubject('${subjKey}')"
+            class="cursor-pointer bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 rounded-2xl p-4 shadow-md transition flex items-center gap-3.5 print-card">
+            <div class="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
+              <svg class="w-16 h-16" viewBox="0 0 68 68">
+                <circle cx="34" cy="34" r="${radius}" stroke="#1e293b" stroke-width="6" fill="transparent" />
+                <circle cx="34" cy="34" r="${radius}" stroke="${meta.color}" stroke-width="6" fill="transparent"
+                  stroke-dasharray="${circumference}" stroke-dashoffset="${offset}" stroke-linecap="round" class="ring-circle" />
+              </svg>
+              <span class="absolute text-xs font-extrabold text-white print-text-dark">${pct}%</span>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:${meta.color}"></span>
+                <h3 class="text-sm font-bold text-white truncate print-text-dark">${meta.short}</h3>
+              </div>
+              <div class="text-xs font-semibold text-slate-300 mt-0.5 print-text-muted">
+                ${revised} / ${total} Done
+              </div>
+              <div class="text-[10px] text-slate-400 mt-0.5">
+                ${learning} Learning • ${meta.theoryMarks}M
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderDailyPlan() {
+      const iso = appState.selectedDate;
+      const plan = generatePlanForDate(iso);
+      const dateObj = parseISODate(iso);
+      const formattedDate = dateObj.toLocaleDateString('en-IN', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+
+      const phaseBadge = document.getElementById('day-phase-badge');
+      phaseBadge.textContent = plan.phaseTitle;
+      phaseBadge.className = `px-2.5 py-0.5 rounded-full text-xs font-bold border ${plan.phaseBadgeClass}`;
+
+      const specialBadge = document.getElementById('day-special-badge');
+      if (plan.specialTag) {
+        specialBadge.textContent = plan.specialTag;
+        specialBadge.classList.remove('hidden');
+      } else {
+        specialBadge.classList.add('hidden');
+      }
+
+      document.getElementById('selected-date-heading').textContent = formattedDate;
+      document.getElementById('selected-date-sub').textContent = plan.subNote;
+
+      // Render blocks
+      let completedCount = 0;
+      const blocksHtml = plan.blocks.map((b, idx) => {
+        const key = `${iso}_${idx}`;
+        const checked = !!appState.completedBlocks[key];
+        if (checked) completedCount++;
+        const meta = SUBJECT_META[b.subject] || SUBJECT_META.Physics;
+
+        return `
+          <label class="flex items-start gap-3.5 p-4 rounded-xl border transition cursor-pointer select-none ${
+            checked
+              ? 'bg-slate-950/60 border-emerald-500/40 opacity-85'
+              : 'bg-slate-950/90 border-slate-800 hover:border-slate-700'
+          } print-card">
+            <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleBlockCheck('${key}')"
+              class="mt-1 w-5 h-5 rounded-md accent-emerald-500 cursor-pointer flex-shrink-0" />
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-[11px] font-mono font-semibold text-slate-400 print-text-muted">${b.time}</span>
+                <span class="text-[11px] font-bold px-2 py-0.5 rounded-md border"
+                  style="background:${meta.color}1a; color:${meta.color}; border-color:${meta.color}44">
+                  ${meta.short}
+                </span>
+              </div>
+              <div class="text-sm font-bold mt-1 ${checked ? 'line-through text-slate-400' : 'text-white'} print-text-dark">
+                ${b.title}
+              </div>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed print-text-muted">
+                ${b.desc}
+              </p>
+            </div>
+          </label>
+        `;
+      }).join('');
+
+      document.getElementById('daily-blocks-container').innerHTML = blocksHtml;
+
+      const dailyPct = Math.round((completedCount / plan.blocks.length) * 100);
+      document.getElementById('daily-pct-badge').textContent = `${dailyPct}%`;
+    }
+
+    function toggleBlockCheck(key) {
+      appState.completedBlocks[key] = !appState.completedBlocks[key];
+
+      // Auto-increment streak if all 3 blocks for the selected date are now completed
+      const iso = appState.selectedDate;
+      const allDone = [0, 1, 2].every(i => !!appState.completedBlocks[`${iso}_${i}`]);
+      if (allDone && appState.lastStreakDate !== iso) {
+        appState.streak += 1;
+        appState.lastStreakDate = iso;
+        showToast(`Awesome! All 3 study blocks complete. Streak: ${appState.streak} days 🔥`);
+      }
+
+      saveState();
+      renderDailyPlan();
+      renderTopStats();
+    }
+
+    function incrementStreakManual() {
+      appState.streak += 1;
+      saveState();
+      renderTopStats();
+      showToast(`Study streak updated to ${appState.streak} days!`);
+    }
+
+    function shiftSelectedDate(delta) {
+      const current = parseISODate(appState.selectedDate);
+      current.setDate(current.getDate() + delta);
+      const nextIso = formatISO(current);
+      if (nextIso < '2026-11-26' || nextIso > '2027-03-20') {
+        showToast('Study plan covers 26 Nov 2026 to 20 Mar 2027');
+        return;
+      }
+      jumpToDate(nextIso);
+    }
+
+    function onDateInputChange(val) {
+      if (!val) return;
+      jumpToDate(val);
+    }
+
+    function jumpToDate(iso) {
+      appState.selectedDate = iso;
+      document.getElementById('date-picker').value = iso;
+      saveState();
+      renderDailyPlan();
+      renderExamTimeline();
+      renderTopStats();
+    }
+
+    // =========================================================================
+    // 5. CHAPTER TRACKER & WEAK TOPIC LIST
+    // =========================================================================
+    function filterBySubject(subjKey) {
+      appState.activeSubjectTab = subjKey;
+      renderChapterTracker();
+    }
+
+    function renderChapterTracker() {
+      const tabsContainer = document.getElementById('subject-filter-tabs');
+      const tabs = ['ALL', 'Physics', 'Chemistry', 'Mathematics', 'English', 'AI'];
+
+      tabsContainer.innerHTML = tabs.map(tab => {
+        const active = appState.activeSubjectTab === tab;
+        const label = tab === 'ALL' ? 'All Subjects (63)' : `${SUBJECT_META[tab].short}`;
+        return `
+          <button onclick="filterBySubject('${tab}')"
+            class="px-3 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer ${
+              active
+                ? 'bg-slate-100 text-slate-950 border-white shadow'
+                : 'bg-slate-950/80 text-slate-300 border-slate-800 hover:border-slate-700'
+            }">
+            ${label}
+          </button>
+        `;
+      }).join('');
+
+      // Syllabus banner
+      const banner = document.getElementById('subject-syllabus-banner');
+      if (appState.activeSubjectTab === 'ALL') {
+        banner.innerHTML = `<strong class="text-white print-text-dark">All 5 Subjects Rationalized 2026–27 Syllabus:</strong> Physics (70M) + Chemistry (70M) + Maths (80M) + English Core (80M) + AI 843 (50M). Click any subject tab to view unit weightage & deleted topics.`;
+      } else {
+        const m = SUBJECT_META[appState.activeSubjectTab];
+        banner.innerHTML = `<strong style="color:${m.color}">${m.name} (${m.code}):</strong> ${m.syllabusNote}`;
+      }
+
+      const statusFilter = document.getElementById('status-filter').value;
+      const filtered = appState.chapters.filter(ch => {
+        const matchSubj = appState.activeSubjectTab === 'ALL' || ch.subject === appState.activeSubjectTab;
+        const matchStatus =
+          statusFilter === 'ALL' ||
+          (statusFilter === 'Difficult' ? ch.difficult : ch.status === statusFilter);
+        return matchSubj && matchStatus;
+      });
+
+      const listEl = document.getElementById('chapters-list-container');
+      if (filtered.length === 0) {
+        listEl.innerHTML = `<div class="text-center py-8 text-xs text-slate-400">No chapters match this filter.</div>`;
+        return;
+      }
+
+      listEl.innerHTML = filtered.map(ch => {
+        const meta = SUBJECT_META[ch.subject];
+        const statusColors = {
+          'Not Started': 'bg-slate-800 text-slate-300 border-slate-700',
+          'Learning': 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+          'Revised': 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+        };
+
+        return `
+          <div class="bg-slate-950/85 border ${ch.difficult ? 'border-rose-500/40' : 'border-slate-800/90'} rounded-xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 print-card">
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded" style="background:${meta.color}22; color:${meta.color}">
+                  ${meta.short}
+                </span>
+                <span class="text-[10px] font-mono text-slate-400">${ch.unit} • ${ch.weightage}</span>
+                ${ch.difficult ? '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300">DIFFICULT</span>' : ''}
+              </div>
+              <div class="text-xs sm:text-sm font-semibold text-white mt-1 print-text-dark">${ch.title}</div>
+            </div>
+
+            <div class="flex items-center gap-2 flex-shrink-0 no-print">
+              <select onchange="updateChapterStatus('${ch.id}', this.value)"
+                class="text-xs font-semibold rounded-lg px-2.5 py-1.5 border cursor-pointer focus:outline-none ${statusColors[ch.status]}">
+                <option value="Not Started" ${ch.status === 'Not Started' ? 'selected' : ''}>Not Started</option>
+                <option value="Learning" ${ch.status === 'Learning' ? 'selected' : ''}>Learning</option>
+                <option value="Revised" ${ch.status === 'Revised' ? 'selected' : ''}>Revised ✓</option>
+              </select>
+
+              <button onclick="toggleChapterDifficult('${ch.id}')"
+                title="Mark as Difficult (adds to Weak Topic List)"
+                class="px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition cursor-pointer ${
+                  ch.difficult
+                    ? 'bg-rose-600 text-white border-rose-500'
+                    : 'bg-slate-900 hover:bg-slate-800 text-slate-400 border-slate-700'
+                }">
+                ${ch.difficult ? '⚠ Difficult' : 'Mark Difficult'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateChapterStatus(id, newStatus) {
+      const ch = appState.chapters.find(c => c.id === id);
+      if (ch) {
+        ch.status = newStatus;
+        saveState();
+        renderAll();
+        showToast(`${ch.title} → ${newStatus}`);
+      }
+    }
+
+    function toggleChapterDifficult(id) {
+      const ch = appState.chapters.find(c => c.id === id);
+      if (ch) {
+        ch.difficult = !ch.difficult;
+        saveState();
+        renderAll();
+        showToast(ch.difficult ? `Added to Weak Topic List: ${ch.title}` : `Removed from Weak Topic List`);
+      }
+    }
+
+    function renderWeakTopics() {
+      const weakList = appState.chapters.filter(c => c.difficult);
+      document.getElementById('weak-count-badge').textContent = weakList.length;
+
+      const container = document.getElementById('weak-topics-list');
+      if (weakList.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-6 px-3 bg-slate-950/60 border border-slate-800 rounded-xl text-xs text-slate-400">
+            No chapters flagged as difficult right now. Click <strong class="text-slate-200">"Mark Difficult"</strong> on any chapter below to pin it here.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = weakList.map(ch => {
+        const meta = SUBJECT_META[ch.subject];
+        return `
+          <div class="bg-slate-950/90 border border-rose-500/30 rounded-xl p-3 flex items-start justify-between gap-2 print-card">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded" style="background:${meta.color}22; color:${meta.color}">
+                  ${meta.short}
+                </span>
+                <span class="text-[10px] text-slate-400">${ch.weightage} • ${ch.status}</span>
+              </div>
+              <div class="text-xs font-bold text-white mt-1 print-text-dark">${ch.title}</div>
+              ${ch.note ? `<div class="text-[11px] text-rose-300/90 mt-0.5">${ch.note}</div>` : ''}
+            </div>
+            <button onclick="toggleChapterDifficult('${ch.id}')" class="text-xs text-slate-400 hover:text-rose-400 px-1.5 py-0.5 rounded no-print cursor-pointer" title="Resolve / Remove">
+              ✕
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // 6. MOCK TEST TRACKER & RESPONSIVE SVG LINE CHART
+    // =========================================================================
+    function addMockScore(e) {
+      e.preventDefault();
+      const subject = document.getElementById('mock-subject').value;
+      const label = document.getElementById('mock-label').value.trim();
+      const scored = parseFloat(document.getElementById('mock-scored').value);
+      const max = parseFloat(document.getElementById('mock-max').value);
+
+      if (!label || isNaN(scored) || isNaN(max) || max <= 0 || scored > max) {
+        showToast('Please enter a valid score (Scored ≤ Max Marks)');
+        return;
+      }
+
+      appState.mocks.push({
+        id: 'm_' + Date.now(),
+        subject,
+        label,
+        scored,
+        max,
+        date: appState.selectedDate
+      });
+
+      document.getElementById('mock-label').value = '';
+      document.getElementById('mock-scored').value = '';
+      saveState();
+      renderMockChart();
+      showToast(`Logged ${subject}: ${scored}/${max} (${Math.round((scored / max) * 100)}%)`);
+    }
+
+    function deleteMockScore(id) {
+      appState.mocks = appState.mocks.filter(m => m.id !== id);
+      saveState();
+      renderMockChart();
+    }
+
+    function renderMockChart() {
+      const filterSubj = document.getElementById('chart-subject-filter').value;
+      const data = appState.mocks.filter(m => filterSubj === 'ALL' || m.subject === filterSubj);
+
+      // Render history list
+      const historyEl = document.getElementById('mock-history-list');
+      if (data.length === 0) {
+        historyEl.innerHTML = `<div class="text-xs text-slate-400 py-3 text-center">No mock tests logged for this filter yet.</div>`;
+      } else {
+        historyEl.innerHTML = [...data].reverse().map(m => {
+          const pct = Math.round((m.scored / m.max) * 100);
+          const meta = SUBJECT_META[m.subject] || SUBJECT_META.Physics;
+          return `
+            <div class="flex items-center justify-between bg-slate-950/80 border border-slate-800 rounded-lg px-3 py-2 text-xs">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:${meta.color}"></span>
+                <span class="font-bold text-slate-200 truncate">${meta.short}: ${m.label}</span>
+              </div>
+              <div class="flex items-center gap-2.5 flex-shrink-0">
+                <span class="font-mono font-bold ${pct >= 95 ? 'text-emerald-400' : pct >= 80 ? 'text-amber-300' : 'text-rose-400'}">
+                  ${m.scored}/${m.max} (${pct}%)
+                </span>
+                <button onclick="deleteMockScore('${m.id}')" class="text-slate-500 hover:text-rose-400 no-print cursor-pointer" title="Delete">✕</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Render SVG Line Chart
+      const chartContainer = document.getElementById('mock-chart-container');
+      const W = 440;
+      const H = 190;
+      const padL = 34;
+      const padR = 16;
+      const padT = 16;
+      const padB = 28;
+      const plotW = W - padL - padR;
+      const plotH = H - padT - padB;
+
+      // Grid lines (0%, 25%, 50%, 75%, 95%, 100%)
+      const yLevels = [0, 25, 50, 75, 100];
+      let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-full overflow-visible">`;
+
+      yLevels.forEach(val => {
+        const y = padT + plotH - (val / 100) * plotH;
+        svg += `
+          <line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#1e293b" stroke-width="1" />
+          <text x="${padL - 6}" y="${y + 3}" text-anchor="end" fill="#64748b" font-size="9" font-family="JetBrains Mono">${val}%</text>
+        `;
+      });
+
+      // 95% Target Benchmark Line
+      const y95 = padT + plotH - (95 / 100) * plotH;
+      svg += `<line x1="${padL}" y1="${y95}" x2="${W - padR}" y2="${y95}" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4 3" />`;
+
+      if (data.length > 0) {
+        const points = data.map((item, idx) => {
+          const pct = Math.min(100, Math.max(0, (item.scored / item.max) * 100));
+          const x = data.length === 1
+            ? padL + plotW / 2
+            : padL + (idx / (data.length - 1)) * plotW;
+          const y = padT + plotH - (pct / 100) * plotH;
+          return { x, y, pct: Math.round(pct), item };
+        });
+
+        // Area fill under curve
+        if (points.length > 1) {
+          const polyPts = points.map(p => `${p.x},${p.y}`).join(' ');
+          const areaPts = `${points[0].x},${padT + plotH} ${polyPts} ${points[points.length - 1].x},${padT + plotH}`;
+          svg += `
+            <defs>
+              <linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.32" />
+                <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0" />
+              </linearGradient>
+            </defs>
+            <polygon points="${areaPts}" fill="url(#scoreGrad)" />
+            <polyline fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="${polyPts}" />
+          `;
+        }
+
+        // Data points & labels
+        points.forEach(p => {
+          const meta = SUBJECT_META[p.item.subject] || SUBJECT_META.Physics;
+          svg += `
+            <circle cx="${p.x}" cy="${p.y}" r="4.5" fill="${meta.color}" stroke="#0f172a" stroke-width="1.5" />
+            <text x="${p.x}" y="${p.y - 8}" text-anchor="middle" fill="#f8fafc" font-size="9" font-weight="700" font-family="JetBrains Mono">${p.pct}%</text>
+            <text x="${p.x}" y="${H - 8}" text-anchor="middle" fill="#94a3b8" font-size="8.5">${meta.short}</text>
+          `;
+        });
+      } else {
+        svg += `<text x="${W / 2}" y="${H / 2}" text-anchor="middle" fill="#64748b" font-size="11">Add a mock test score below to plot progress</text>`;
+      }
+
+      svg += `</svg>`;
+      chartContainer.innerHTML = svg;
+    }
+
+    function triggerPrintPlan() {
+      window.print();
+    }
+
+    function renderAll() {
+      renderTopStats();
+      renderExamTimeline();
+      renderSubjectRings();
+      renderDailyPlan();
+      renderWeakTopics();
+      renderChapterTracker();
+      renderMockChart();
+    }
+
+    // =========================================================================
+    // 7. INITIALIZATION ON WINDOW LOAD
+    // =========================================================================
+    window.onload = function () {
+      loadState();
+      document.getElementById('date-picker').value = appState.selectedDate;
+      renderAll();
+      updateLiveCountdown();
+      setInterval(updateLiveCountdown, 1000);
+    };
+  </script>
+</body>
+</html>
